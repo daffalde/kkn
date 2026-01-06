@@ -29,9 +29,13 @@ export default async function MahasiswaPage({ params }) {
               height={25}
             />
           </button>
-          <p>Swipe ke bawah untuk info detail.</p>
+          <div className={style.topInfo}>
+            <p>Klik</p>
+            <img src="/option.png" alt="option icon" width={"20px"} />
+            <p> untuk info detail.</p>
+          </div>
         </div>
-        <div className={style.bottom} style={{ height: "210px" }}>
+        <div className={style.bottom}>
           <div className={style.bottomName}>
             <h1>{mahasiswa.nama}</h1>
             <h2>{mahasiswa.posisi}</h2>
