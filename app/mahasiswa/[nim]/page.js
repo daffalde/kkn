@@ -31,7 +31,7 @@ export default async function MahasiswaPage({ params }) {
           </button>
           <p>Swipe ke bawah untuk info detail.</p>
         </div>
-        <div className={style.bottom}>
+        <div className={style.bottom} style={{ height: "210px" }}>
           <div className={style.bottomName}>
             <h1>{mahasiswa.nama}</h1>
             <h2>{mahasiswa.posisi}</h2>
