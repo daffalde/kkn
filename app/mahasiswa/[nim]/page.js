@@ -4,6 +4,7 @@ import dataMahasiswa from "@/app/data/dataMahasiswa.json";
 import style from "./page.module.css";
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function MahasiswaPage({ params }) {
   const { nim } = params;
@@ -91,18 +92,24 @@ export default function MahasiswaPage({ params }) {
                 {mahasiswaExcept.map((e) => {
                   return (
                     <>
-                      <div className={style.bmlList}>
-                        <div
-                          className={style.bmlListImage}
-                          style={{
-                            background: `url(/${e.nim}.jpg)`,
-                            backgroundSize: "cover",
-                            backgroundPosition: "top",
-                            backgroundRepeat: "no-repeat",
-                          }}
-                        ></div>
-                        <h3>{e.nama}</h3>
-                      </div>
+                      <Link
+                        href={`/mahasiswa/${e.nim}`} // Mengarah ke rute dinamis, misal: /mahasiswa/12345
+                        key={e.nim}
+                      >
+                        <div className={style.bmlList}>
+                          <div
+                            className={style.bmlListImage}
+                            style={{
+                              background: `url(/${e.nim}.jpg)`,
+                              backgroundSize: "cover",
+                              backgroundPosition: "top",
+                              backgroundRepeat: "no-repeat",
+                            }}
+                          ></div>
+                          <h3 className={style.bmlListName}>{e.nama}</h3>
+                          <p>{e.posisi}</p>
+                        </div>
+                      </Link>
                     </>
                   );
                 })}

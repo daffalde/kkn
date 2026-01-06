@@ -302,9 +302,22 @@
 }
 .bmlList {
   width: 100%;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+.bmlList:active {
+  transform: scale(0.95);
+  transition: 0.3s;
 }
 .bmlListImage {
   width: 100%;
   height: 130px;
   border-radius: 10px;
+}
+.bmlListName {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  width: 120px;
 }
