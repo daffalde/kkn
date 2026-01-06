@@ -137,14 +137,13 @@
 
 /* _______________________ */
 .bottom {
-  /* height: 210px; */
   height: 210px;
   transition: 0.7s;
   margin-top: 10px;
   z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: top;
   align-items: center;
   gap: 20px;
   position: relative;
@@ -158,7 +157,7 @@
   background-color: hsla(47, 47%, 94%, 0.1);
 }
 .detailVariable {
-  height: 100%;
+  height: 90%;
   transition: 0.7s;
 }
 .bottomName {
@@ -293,4 +292,19 @@
 }
 .optionButton :global(img) {
   width: 25px;
+}
+.bottomMahasiswaLain {
+  width: 100%;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.bmlList {
+  width: 100%;
+}
+.bmlListImage {
+  width: 100%;
+  height: 130px;
+  border-radius: 10px;
 }

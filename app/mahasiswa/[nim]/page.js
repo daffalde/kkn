@@ -8,8 +8,9 @@ import { useState } from "react";
 export default function MahasiswaPage({ params }) {
   const { nim } = params;
   const mahasiswa = dataMahasiswa.find((m) => String(m.nim) === String(nim));
-  console.log("halo");
-  console.log(mahasiswa.nim);
+  const mahasiswaExcept = dataMahasiswa.filter(
+    (m) => String(m.nim) !== String(nim)
+  );
 
   const [detail, setDetail] = useState(false);
 
@@ -86,6 +87,26 @@ export default function MahasiswaPage({ params }) {
                 </div>
               </div>
               <h3>Mahasiswa Lain :</h3>
+              <div className={style.bottomMahasiswaLain}>
+                {mahasiswaExcept.map((e) => {
+                  return (
+                    <>
+                      <div className={style.bmlList}>
+                        <div
+                          className={style.bmlListImage}
+                          style={{
+                            background: `url(/${e.nim}.jpg)`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "top",
+                            backgroundRepeat: "no-repeat",
+                          }}
+                        ></div>
+                        <h3>{e.nama}</h3>
+                      </div>
+                    </>
+                  );
+                })}
+              </div>
             </div>
           ) : null}
           <div className={style.bottomAction}>
