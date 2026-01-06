@@ -117,10 +117,17 @@ export default function MahasiswaPage({ params }) {
             </div>
           ) : null}
           <div className={style.bottomAction}>
-            <button className={style.hubungiSaya}>
+            <Link
+              href={`https://wa.me/${mahasiswa.wa}?text=${encodeURIComponent(
+                "Halo,Saya ingin bertanya."
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={style.hubungiSaya}
+            >
               <Image src="/wa.png" alt="wa icon" width={25} height={25} />
-              Hubungi Saya
-            </button>
+              <p>Hubungi Saya</p>
+            </Link>
             <button
               onClick={() => setDetail(!detail)}
               className={style.optionButton}
