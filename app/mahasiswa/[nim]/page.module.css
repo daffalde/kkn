@@ -171,7 +171,6 @@
 }
 .bottomDetail {
   width: 100%;
-  border: 1px solid black;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;

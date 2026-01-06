@@ -55,7 +55,7 @@ export default function MahasiswaPage({ params }) {
               className={style.bottomDetail}
               style={{ height: detail ? "100%" : "0%" }}
             >
-              <h3>Info Mahasiswa</h3>
+              <h3>Info Mahasiswa :</h3>
               <div className={style.bottomDetailContent}>
                 <div className={style.bottomDetailInfo}>
                   <p>Kelompok KKN</p>
@@ -85,6 +85,7 @@ export default function MahasiswaPage({ params }) {
                   <p>{mahasiswa.nim}</p>
                 </div>
               </div>
+              <h3>Mahasiswa Lain :</h3>
             </div>
           ) : null}
           <div className={style.bottomAction}>
