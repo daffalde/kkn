@@ -1,12 +1,18 @@
+"use client";
+
 import dataMahasiswa from "@/app/data/dataMahasiswa.json";
 import style from "./page.module.css";
 import Image from "next/image";
+import { useState } from "react";
 
-export default async function MahasiswaPage({ params }) {
-  const { nim } = await params;
+export default function MahasiswaPage({ params }) {
+  const { nim } = params;
   const mahasiswa = dataMahasiswa.find((m) => String(m.nim) === String(nim));
   console.log("halo");
   console.log(mahasiswa.nim);
+
+  const [detail, setDetail] = useState(false);
+
   return (
     <div className={style.container}>
       <div
@@ -18,7 +24,9 @@ export default async function MahasiswaPage({ params }) {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className={style.gradient}></div>
+        <div
+          className={`${style.gradient} ${detail ? style.gradientOn : " "}`}
+        ></div>
         <div className={style.top}>
           <button className={style.topBack}>
             <Image
@@ -35,18 +43,63 @@ export default async function MahasiswaPage({ params }) {
             <p> untuk info detail.</p>
           </div>
         </div>
-        <div className={style.bottom}>
+        <div
+          className={`${style.bottom} ${detail ? style.detailVariable : " "}`}
+        >
           <div className={style.bottomName}>
             <h1>{mahasiswa.nama}</h1>
             <h2>{mahasiswa.posisi}</h2>
           </div>
+          {detail ? (
+            <div
+              className={style.bottomDetail}
+              style={{ height: detail ? "100%" : "0%" }}
+            >
+              <h3>Info Mahasiswa</h3>
+              <div className={style.bottomDetailContent}>
+                <div className={style.bottomDetailInfo}>
+                  <p>Kelompok KKN</p>
+                  <p>3</p>
+                </div>
+                <div className={style.bottomDetailInfo}>
+                  <p>Lokasi KKN</p>
+                  <p>Dusun Durensawit</p>
+                </div>
+                <div className={style.bottomDetailInfo}>
+                  <p>Jurusan</p>
+                  <p>{mahasiswa.jurusan}</p>
+                </div>
+                <div className={style.bottomDetailInfo}>
+                  <p>Fakultas</p>
+                  <p>{mahasiswa.fakultas}</p>
+                </div>
+                <div className={style.bottomDetailInfo}>
+                  <p>Universitas</p>
+                  <p>
+                    Universitas Mercubuana <br />
+                    Yogyakarta
+                  </p>
+                </div>
+                <div className={style.bottomDetailInfo}>
+                  <p>NIM</p>
+                  <p>{mahasiswa.nim}</p>
+                </div>
+              </div>
+            </div>
+          ) : null}
           <div className={style.bottomAction}>
             <button className={style.hubungiSaya}>
               <Image src="/wa.png" alt="wa icon" width={25} height={25} />
               Hubungi Saya
             </button>
-            <button className={style.optionButton}>
-              <img src="/option.png" alt="option icon" />
+            <button
+              onClick={() => setDetail(!detail)}
+              className={style.optionButton}
+            >
+              <img
+                src={`${detail ? "/close.png" : "/option.png"}`}
+                alt="option icon"
+              />
             </button>
           </div>
         </div>
