@@ -92,10 +92,7 @@ export default function MahasiswaPage({ params }) {
                 {mahasiswaExcept.map((e) => {
                   return (
                     <>
-                      <Link
-                        href={`/mahasiswa/${e.nim}`} // Mengarah ke rute dinamis, misal: /mahasiswa/12345
-                        key={e.nim}
-                      >
+                      <Link href={`/mahasiswa/${e.nim}`} key={e.nim}>
                         <div className={style.bmlList}>
                           <div
                             className={style.bmlListImage}
