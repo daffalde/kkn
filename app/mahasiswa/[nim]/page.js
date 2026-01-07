@@ -30,7 +30,7 @@ export default function MahasiswaPage({ params }) {
           className={`${style.gradient} ${detail ? style.gradientOn : " "}`}
         ></div>
         <div className={style.top}>
-          <button className={style.topBack}>
+          <Link href={"/"} className={style.topBack}>
             <Image
               className={style.imgIcon}
               src="/back.png"
@@ -38,7 +38,7 @@ export default function MahasiswaPage({ params }) {
               width={25}
               height={25}
             />
-          </button>
+          </Link>
           <div className={style.topInfo}>
             <p>Klik</p>
             <img src="/option.png" alt="option icon" width={"20px"} />
